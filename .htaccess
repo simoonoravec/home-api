@@ -1,0 +1,11 @@
+ErrorDocument 403 /400.json
+ErrorDocument 404 /400.json
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.api.php [NC,L]
+
+<FilesMatch "\.inc.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
